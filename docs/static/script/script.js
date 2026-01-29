@@ -62,6 +62,6 @@ document.getElementById('questionarioForm').addEventListener('submit', async (e)
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Houbo un erro ao enviar a confirmación. Por favor, inténtao de novo.');
+        alert('Hubo un error al enviar la confirmación. Por favor, inténtalo de nuevo.');
     }
 });
