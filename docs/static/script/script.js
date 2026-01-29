@@ -53,12 +53,12 @@ document.getElementById('questionarioForm').addEventListener('submit', async (e)
         
         if (response.ok) {
             // Show success message
-            alert('Grazas! A túa confirmación foi enviada correctamente.');
+            alert('Gracias! Tu confirmación fue enviada correctamente.');
             e.target.reset();
             goHome();
         } else {
             // Show error message
-            alert('Houbo un erro ao enviar a confirmación. Por favor, inténtao de novo.');
+            alert('Hubo un error al enviar la confirmación. Por favor, inténtalo de nuevo.');
         }
     } catch (error) {
         console.error('Error:', error);
