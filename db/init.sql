@@ -1,0 +1,12 @@
+CREATE TABLE boda.invitados (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    contacto VARCHAR(15) NOT NULL,
+    asistencia BOOLEAN DEFAULT FALSE NOT NULL,
+    usuario_bus BOOLEAN DEFAULT FALSE NOT NULL,
+    neno BOOLEAN DEFAULT FALSE NOT NULL,
+    vegano BOOLEAN DEFAULT FALSE NOT NULL,
+    alerxias VARCHAR(100) NULL,
+    intolerancias VARCHAR(100) NULL,
+    data_rexistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

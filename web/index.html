@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda - Menú Principal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles/styles.css">
+</head>
+<body>
+    <!-- Background -->
+    <div class="background"></div>
+
+    <!-- Hamburger Menu Button -->
+    <button class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar Menu -->
+    <nav class="sidebar" id="sidebar">
+        <h2>Menú</h2>
+        <div class="menu-item">
+            <a href="#" data-section="buses">
+                <span class="menu-icon">🚌</span>
+                <span>Buses</span>
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="#" data-section="info">
+                <span class="menu-icon">ℹ️</span>
+                <span>Información</span>
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="#" data-section="cuestionario">
+                <span class="menu-icon">📝</span>
+                <span>Cuestionario</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Home Screen -->
+    <div class="home-screen" id="homeScreen">
+        <h1 class="welcome-title">Bienvenido</h1>
+        <p class="welcome-subtitle">Al bodorrio de estos dos</p>
+    </div>
+
+    <!-- Buses Section -->
+    <div class="content" id="buses">
+        <button class="back-button" onclick="goHome()">← Volver</button>
+        <div class="section-container">
+            <h2 class="section-title">🚌 Buses</h2>
+            
+            <div class="bus-card">
+                <h3>Bus Ida - P'allá</h3>
+                <p><strong>Salida:</strong> 10:00h - Plaza de España</p>
+                <p><strong>Llegada:</strong> 16:00h - Pazo</p>
+                <p><strong>Paradas:</strong> Jamás</p>
+            </div>
+
+            <div class="bus-card">
+                <h3>Bus Vuelta - P'aquí</h3>
+                <p><strong>Salida:</strong> 02:00h - Pazo</p>
+                <p><strong>Llegada:</strong> 08:00h - M.A. neno</p>
+                <p><strong>Paradas:</strong> A dormir un ratete, que es tarde</p>
+            </div>
+
+            <div class="bus-card">
+                <h3>Bus Local - L26</h3>
+                <p><strong>Salida:</strong> 17:00h - Praza de Bergondo</p>
+                <p><strong>Vuelta:</strong> 02:30h - Pazo</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Información Section -->
+    <div class="content" id="info">
+        <button class="back-button" onclick="goHome()">← Volver</button>
+        <div class="section-container">
+            <h2 class="section-title">ℹ️ Información</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>📅 Fecha y Hora</h3>
+                    <p><strong>Fecha:</strong> 27 de Junio, 2026</p>
+                    <p><strong>Ceremonia:</strong> 18:00h</p>
+                    <p><strong>Banquete:</strong> 20:30h</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>📍 Lugar</h3>
+                    <p><strong>Pazo de Meirás</strong></p>
+                    <p>Av. de Meirás, s/n</p>
+                    <p>12345 Bergondo, A Coruña</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🏨 Alojamientos</h3>
+                    <p><strong>Hotel Sugerido:</strong></p>
+                    <p>Este de aquí</p>
+                    <p>Código desconto: OjalaDescuento</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>👔 Vestimenta</h3>
+                    <p><strong>Etiqueta:</strong> Formal</p>
+                    <p>Trajes y vestidos (opcional)</p>
+                    <p>No se require smoking</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🚗 Aparcamiento</h3>
+                    <p><strong>Ahí donde la fábrica</strong></p>
+                    <p>Justo ahí, s/n</p>
+                    <p>54321 Bergondo, A Coruña</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>📞 Contacto</h3>
+                    <p><strong>Organizadores:</strong></p>
+                    <p>Er Carlo*: 123 456 789</p>
+                    <p>La Raqueh*: 987 654 321</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cuestionario Section -->
+    <div class="content" id="cuestionario">
+        <button class="back-button" onclick="goHome()">← Volver</button>
+        <div class="section-container">
+            <h2 class="section-title">📝 Cuestionario</h2>
+
+            <form id="questionarioForm">
+                <div class="form-group">
+                    <label for="nome">Nombre completo *</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contacto">Contacto *</label>
+                    <input type="text" id="contacto" name="contacto" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="asistencia">Confirmas asistencia? *</label>
+                    <select id="asistencia" name="asistencia" required>
+                        <option value="si">Sí, asistiré</option>
+                        <option value="no">No podré asistir</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="usuario_bus">Necesitas bus?</label>
+                    <select id="usuario_bus" name="usuario_bus">
+                        <option value="no">No necesito</option>
+                        <option value="si">Necesito bus</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="neno">¿Eres menor de 12 anos?</label>
+                    <select id="neno" name="neno">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="vegano">¿Eres vegano?</label>
+                    <select id="vegano" name="vegano">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="alerxias">Alergias alimentarias</label>
+                    <textarea id="alerxias" name="alerxias" rows="3" placeholder="Indícanos si tienes alguna alergia..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="intolerancias">Intolerancias alimentarias</label>
+                    <textarea id="intolerancias" name="intolerancias" rows="3" placeholder="Indícanos si tienes alguna intolerancia..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">Enviar Confirmación</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/script/script.js"></script>
+</body>
+</html>
