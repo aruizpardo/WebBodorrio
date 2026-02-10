@@ -347,6 +347,18 @@ body {
     box-shadow: 0 10px 30px rgba(74, 143, 181, 0.4);
 }
 
+/* Parking Map Image */
+.parking-map {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 15px;
+    margin: 1.5rem auto;
+    display: block;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border: 2px solid var(--ocean-light);
+}
+
 /* Contact Cards */
 .contact-card {
     background: linear-gradient(135deg, rgba(143, 170, 146, 0.15) 0%, rgba(217, 119, 87, 0.15) 100%);
