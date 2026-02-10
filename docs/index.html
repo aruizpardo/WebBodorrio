@@ -24,12 +24,6 @@
     <nav class="sidebar" id="sidebar">
         <h2>Menú</h2>
         <div class="menu-item">
-            <a href="#" data-section="buses">
-                <span class="menu-icon">🚌</span>
-                <span>Buses</span>
-            </a>
-        </div>
-        <div class="menu-item">
             <a href="#" data-section="info">
                 <span class="menu-icon">ℹ️</span>
                 <span>Información</span>
@@ -38,41 +32,99 @@
         <div class="menu-item">
             <a href="#" data-section="cuestionario">
                 <span class="menu-icon">📝</span>
-                <span>Cuestionario</span>
+                <span>Confirmación</span>
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="#" data-section="ubicacion">
+                <span class="menu-icon">📍</span>
+                <span>Ubicación</span>
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="#" data-section="transporte">
+                <span class="menu-icon">🚌</span>
+                <span>Transporte</span>
+            </a>
+        </div>
+        <div class="menu-item">
+            <a href="#" data-section="contactos">
+                <span class="menu-icon">📞</span>
+                <span>Contactos</span>
             </a>
         </div>
     </nav>
 
     <!-- Home Screen -->
     <div class="home-screen" id="homeScreen">
-        <h1 class="welcome-title">Bienvenido</h1>
-        <p class="welcome-subtitle">Al bodorrio de estos dos</p>
+        <h1 class="welcome-title">Bienvenidos</h1>
+        <p class="welcome-subtitle">A la web de nuestra boda</p>
     </div>
 
-    <!-- Buses Section -->
-    <div class="content" id="buses">
+    <!-- Ubicación Section -->
+    <div class="content" id="ubicacion">
         <button class="back-button" onclick="goHome()">← Volver</button>
         <div class="section-container">
-            <h2 class="section-title">🚌 Buses</h2>
+            <h2 class="section-title">📍 Ubicación</h2>
             
-            <div class="bus-card">
-                <h3>Bus Ida - P'allá</h3>
-                <p><strong>Salida:</strong> 10:00h - Plaza de España</p>
-                <p><strong>Llegada:</strong> 16:00h - Pazo</p>
-                <p><strong>Paradas:</strong> Jamás</p>
+            <div class="info-text">
+                <p>Hemos elegido un sitio precioso para celebrar el día con vosotros, y queremos que llegar sea lo más sencillo posible. Aquí encontrarás la chincheta con la ubicación exacta de la finca y un mapa de la zona para que puedas orientarte sin líos.</p>
+                
+                <p>Habrá un autobús disponible para quienes prefieran olvidarse del volante. Podrás reservar tu plaza con antelación y te dejará directamente en la finca, sin preocupaciones. Cuando sepamos el número de personas que optarán por esta opción os dejaremos toda la información en la pestaña "Transporte". En esta pestaña os dejaremos también el contacto de algunos taxistas por si preferís esta alternativa.</p>
+                
+                <p>Si vienes en coche, en el mapa verás marcadas varias zonas donde se puede aparcar. Eso sí, el espacio es limitado, así que te recomendamos compartir coche con otros invitados siempre que puedas. Así todos llegamos más cómodos y sin vueltas innecesarias.</p>
+                
+                <div class="map-link">
+                    <h4>📌 Chincheta de Google Maps:</h4>
+                    <a href="https://maps.app.goo.gl/oSfDxEFVo3iRFinT9" target="_blank" class="map-button">Ver ubicación en Google Maps</a>
+                </div>
+                
+                <h4>🚗 Zona de aparcamiento:</h4>
+                <p><em>(Información próximamente)</em></p>
             </div>
+        </div>
+    </div>
 
-            <div class="bus-card">
-                <h3>Bus Vuelta - P'aquí</h3>
-                <p><strong>Salida:</strong> 02:00h - Pazo</p>
-                <p><strong>Llegada:</strong> 08:00h - M.A. neno</p>
-                <p><strong>Paradas:</strong> A dormir un ratete, que es tarde</p>
+    <!-- Transporte Section -->
+    <div class="content" id="transporte">
+        <button class="back-button" onclick="goHome()">← Volver</button>
+        <div class="section-container">
+            <h2 class="section-title">🚌 Transporte</h2>
+            
+            <div class="info-text">
+                <p>Esta información todavía no está disponible. La actualizaremos cuando tengamos los datos de las personas que utilizarán el autobús.</p>
             </div>
+        </div>
+    </div>
 
-            <div class="bus-card">
-                <h3>Bus Local - L26</h3>
-                <p><strong>Salida:</strong> 17:00h - Cocheras de los Rosales</p>
-                <p><strong>Vuelta:</strong> 02:30h - Pazo (poco me parece para el bus urbano...)</p>
+    <!-- Contactos Section -->
+    <div class="content" id="contactos">
+        <button class="back-button" onclick="goHome()">← Volver</button>
+        <div class="section-container">
+            <h2 class="section-title">📞 Contactos de interés</h2>
+            
+            <div class="info-text">
+                <p>Suponemos que si te ha llegado la invitación es porque ya tienes nuestros números, pero dejamos también aquí la información relevante por si fuese necesario:</p>
+                
+                <div class="contact-card">
+                    <h3>Raquel</h3>
+                    <p><strong>Teléfono:</strong> 650 282 643</p>
+                    <p><strong>Correo:</strong> <a href="mailto:rcasalobregon@gmail.com">rcasalobregon@gmail.com</a></p>
+                </div>
+                
+                <div class="contact-card">
+                    <h3>Carlos</h3>
+                    <p><strong>Teléfono:</strong> 660 685 593</p>
+                    <p><strong>Correo:</strong> <a href="mailto:carlosrapelaponte@gmail.com">carlosrapelaponte@gmail.com</a></p>
+                </div>
+                
+                <p>Para ayudarnos a coordinar un evento de semejante magnitud, contamos con la inestimable ayuda de Silvia. Ponemos también su contacto por si os resulta de interés:</p>
+                
+                <div class="contact-card">
+                    <h3>Silvia - El Consejo de Silvia</h3>
+                    <p><strong>Teléfono:</strong> 647 032 575</p>
+                    <p><strong>Correo:</strong> <a href="mailto:info@elconsejodesilvia.com">info@elconsejodesilvia.com</a></p>
+                </div>
             </div>
         </div>
     </div>
@@ -81,50 +133,23 @@
     <div class="content" id="info">
         <button class="back-button" onclick="goHome()">← Volver</button>
         <div class="section-container">
-            <h2 class="section-title">ℹ️ Información</h2>
+            <h2 class="section-title">ℹ️ Información del evento</h2>
             
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>📅 Fecha y Hora</h3>
-                    <p><strong>Fecha:</strong> 27 de Junio, 2026</p>
-                    <p><strong>Ceremonia:</strong> 18:00h</p>
-                    <p><strong>Banquete:</strong> 20:30h</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>📍 Lugar</h3>
-                    <p><strong>Pazo de Meirás</strong></p>
-                    <p>Av. de Meirás, s/n</p>
-                    <p>12345 Bergondo, A Coruña</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>🏨 Alojamientos</h3>
-                    <p><strong>Hotel Sugerido:</strong></p>
-                    <p>Este de aquí</p>
-                    <p>Código desconto: OjalaDescuento</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>👔 Vestimenta</h3>
-                    <p><strong>Etiqueta:</strong> Formal</p>
-                    <p>Trajes y vestidos (opcional)</p>
-                    <p>No se require smoking</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>🚗 Aparcamiento</h3>
-                    <p><strong>Ahí donde la fábrica</strong></p>
-                    <p>Justo ahí, s/n</p>
-                    <p>54321 Bergondo, A Coruña</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>📞 Contacto</h3>
-                    <p><strong>Organizadores:</strong></p>
-                    <p>Er Carlo*: 123 456 789</p>
-                    <p>La Raqueh*: 987 654 321</p>
-                </div>
+            <div class="info-text">
+                <h3>Bienvenidos a la web de nuestra boda</h3>
+                <p>¡Qué alegría tenerte aquí! Hemos creado este espacio para compartir contigo toda la información importante sobre nuestro gran día y para que puedas vivir con nosotros la ilusión que nos acompaña desde que decidimos dar este paso.</p>
+                
+                <p>La celebración completa —ceremonia, aperitivo, banquete y fiesta— tendrá lugar en <strong>Finca Santa Baia (Bergondo)</strong> el <strong>27/06/2026 a las 17:30</strong>. Hemos elegido este espacio porque nos permite compartir cada momento contigo en un mismo entorno, sin desplazamientos y con la tranquilidad de que todo fluye en un solo lugar.</p>
+                
+                <h4>En esta web encontrarás:</h4>
+                <ul>
+                    <li>Confirmación de asistencia</li>
+                    <li>Ubicación exacta de la finca</li>
+                    <li>Información sobre los transportes para quienes deseen utilizar este servicio</li>
+                    <li>Contactos e información de interés para cualquier duda o necesidad</li>
+                </ul>
+                
+                <p class="closing-text">Estamos muy felices de poder vivir este día contigo. Tu presencia hace que este día sea aún más especial para nosotros.</p>
             </div>
         </div>
     </div>
@@ -133,7 +158,14 @@
     <div class="content" id="cuestionario">
         <button class="back-button" onclick="goHome()">← Volver</button>
         <div class="section-container">
-            <h2 class="section-title">📝 Cuestionario</h2>
+            <h2 class="section-title">📝 Confirmación de asistencia</h2>
+
+            <div class="info-text">
+                <p>¡Qué ganas tenemos de celebrar este día con vosotros!</p>
+                <p>Para poder organizarnos bien y que todo salga genial, os pedimos que rellenéis este pequeño cuestionario. No os llevará nada y a nosotros nos ayudará muchísimo a tenerlo todo listo.</p>
+                <p>¡Gracias por echarnos una mano y por acompañarnos en esta aventura!</p>
+                <p><strong>Importante:</strong> deberéis cubrir uno por cada persona que asista, así nos resultará más fácil enviar los datos al catering. ¡Muchas gracias!</p>
+            </div>
 
             <form id="questionarioForm">
                 <div class="form-group">
@@ -142,28 +174,32 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="contacto">Contacto *</label>
-                    <input type="text" id="contacto" name="contacto" required>
+                    <label for="contacto">Teléfono de contacto *</label>
+                    <input type="tel" id="contacto" name="contacto" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="asistencia">Confirmas asistencia? *</label>
+                    <label for="asistencia">¿Confirmas asistencia? *</label>
                     <select id="asistencia" name="asistencia" required>
-                        <option value="si">Sí, asistiré</option>
-                        <option value="no">No podré asistir</option>
+                        <option value="">Selecciona una opción</option>
+                        <option value="si">Sí, por supuesto</option>
+                        <option value="si">Sin mí no se puede hacer la boda</option>
+                        <option value="no">Lo siento, no puedo 😢</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="usuario_bus">Necesitas bus?</label>
+                    <label for="usuario_bus">¿Utilizarás autobús?</label>
                     <select id="usuario_bus" name="usuario_bus">
-                        <option value="no">No necesito</option>
-                        <option value="si">Necesito bus</option>
+                        <option value="no">No utilizaré autobús</option>
+                        <option value="ida">Ida</option>
+                        <option value="vuelta">Vuelta</option>
+                        <option value="ambos">Ambos</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="neno">¿Eres menor de 12 anos?</label>
+                    <label for="neno">¿Quieres menú infantil? (sólo menores de 12 años)</label>
                     <select id="neno" name="neno">
                         <option value="no">No</option>
                         <option value="si">Sí</option>
@@ -171,21 +207,17 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="vegano">¿Eres vegano?</label>
+                    <label for="vegano">¿Eres vegano / vegetariano?</label>
                     <select id="vegano" name="vegano">
                         <option value="no">No</option>
-                        <option value="si">Sí</option>
+                        <option value="vegetariano">Vegetariano</option>
+                        <option value="vegano">Vegano</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="alerxias">Alergias alimentarias</label>
-                    <textarea id="alerxias" name="alerxias" rows="3" placeholder="Indícanos si tienes alguna alergia..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="intolerancias">Intolerancias alimentarias</label>
-                    <textarea id="intolerancias" name="intolerancias" rows="3" placeholder="Indícanos si tienes alguna intolerancia..."></textarea>
+                    <label for="intolerancias">¿Tienes alergias, intolerancias o alguna otra restricción alimentaria?</label>
+                    <textarea id="intolerancias" name="intolerancias" rows="3" placeholder="Indícanos si tienes alguna alergia, intolerancia o restricción alimentaria..."></textarea>
                 </div>
 
                 <button type="submit" class="submit-button">Enviar Confirmación</button>

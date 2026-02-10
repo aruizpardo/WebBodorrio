@@ -43,6 +43,12 @@ document.getElementById('questionarioForm').addEventListener('submit', async (e)
     
     // Get form data
     const formData = new FormData(e.target);
+    const submitButton = e.target.querySelector('.submit-button');
+    const originalText = submitButton.textContent;
+    
+    // Deshabilitar botón mientras se envía
+    submitButton.disabled = true;
+    submitButton.textContent = 'Enviando...';
     
     try {
         // Send data to API as form-urlencoded
@@ -52,16 +58,41 @@ document.getElementById('questionarioForm').addEventListener('submit', async (e)
         });
         
         if (response.ok) {
-            // Show success message
-            alert('Gracias! Tu confirmación fue enviada correctamente.');
-            e.target.reset();
-            goHome();
+            // Mostrar éxito (verde)
+            submitButton.classList.add('success');
+            submitButton.textContent = '✓ ¡Confirmación enviada!';
+            
+            // Resetear formulario después de 3 segundos
+            setTimeout(() => {
+                submitButton.classList.remove('success');
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                e.target.reset();
+            }, 3000);
         } else {
-            // Show error message
-            alert('Hubo un error al enviar la confirmación. Por favor, inténtalo de nuevo.');
+            // Mostrar error (vermello)
+            submitButton.classList.add('error');
+            submitButton.textContent = '✗ Error al enviar';
+            
+            // Volver al estado original después de 3 segundos
+            setTimeout(() => {
+                submitButton.classList.remove('error');
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }, 3000);
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Hubo un error al enviar la confirmación. Por favor, inténtalo de nuevo.');
+        
+        // Mostrar error (vermello)
+        submitButton.classList.add('error');
+        submitButton.textContent = '✗ Error de conexión';
+        
+        // Volver al estado original después de 3 segundos
+        setTimeout(() => {
+            submitButton.classList.remove('error');
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }, 3000);
     }
 });

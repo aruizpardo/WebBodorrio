@@ -52,12 +52,14 @@ def crear_invitado(
             nome,
             contacto,
             True if asistencia == 'si' else False,
-            True if usuario_bus == 'si' else False,
+            usuario_bus,
             True if neno == 'si' else False,
-            True if vegano == 'si' else False,
+            vegano,
             alerxias,
             intolerancias
         )
+
+        print(values)  # Debug: Ver los valores que se van a insertar
 
         cursor.execute(query, values)
         db.commit()
@@ -86,19 +88,25 @@ def exportar_csv():
         # Crear DataFrame a partir de datos
         df = pd.DataFrame(invitados)
 
-        # Crear resumo
+        # Filtrar só os que asisten para o resumo
+        df_asisten = df[df['asistencia'] == True]
+
+        # Crear resumo (só dos que asisten)
         total_invitados = len(df)
-        confirmados = len(df[df['asistencia'] == True])
-        usuarios_bus = len(df[df['usuario_bus'] == True])
-        ninos = len(df[df['neno'] == True])
-        vegans = len(df[df['vegano'] == True])
-        alerxias = len(df[df['alerxias'] != ""])
-        intolerancias = len(df[df['intolerancias'] != ""])
+        confirmados = len(df_asisten)
+        usuarios_bus_ida = len(df_asisten[df_asisten['usuario_bus'] == "ida"])
+        usuarios_bus_vuelta = len(df_asisten[df_asisten['usuario_bus'] == "vuelta"])
+        usuarios_bus_ambos = len(df_asisten[df_asisten['usuario_bus'] == "ambos"])
+        ninos = len(df_asisten[df_asisten['neno'] == True])
+        vegans = len(df_asisten[df_asisten['vegano'] == "vegano"])
+        vexetarianos = len(df_asisten[df_asisten['vegano'] == "vegetariano"])
+        alerxias = len(df_asisten[df_asisten['alerxias'] != ""])
+        intolerancias = len(df_asisten[df_asisten['intolerancias'] != ""])
 
         # Crear DataFrame de resumo
         df_resumo = pd.DataFrame({
-            'Concepto': ['Total invitados', 'Confirmados', 'Usuarios bus', 'Nenos', 'Vegans', 'Alerxias', 'Intolerancias'],
-            'Cantidade': [total_invitados, confirmados, usuarios_bus, ninos, vegans, alerxias, intolerancias]
+            'Concepto': ['Total invitados', 'Confirmados', 'Usuarios bus ida', 'Usuarios bus volta', 'Nenos', 'Vegans', 'Vegetarianos', 'Alerxias', 'Intolerancias'],
+            'Cantidade': [total_invitados, confirmados, usuarios_bus_ida + usuarios_bus_ambos, usuarios_bus_vuelta + usuarios_bus_ambos, ninos, vegans, vexetarianos, alerxias, intolerancias]
         })
 
         # Crear DataFrame a partir de datos
