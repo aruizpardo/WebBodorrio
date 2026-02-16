@@ -227,13 +227,58 @@ body {
 
 /* Home Screen */
 .home-screen {
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.photo-section {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+}
+
+.background-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.welcome-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--cream);
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    margin: 0;
+    letter-spacing: -3px;
+    animation: slideDown 1s ease;
     text-align: center;
-    padding: 2rem;
+    white-space: nowrap;
 }
 
 .welcome-title {
@@ -492,7 +537,23 @@ body {
     75% { transform: translateX(10px); }
 }
 
-/* Responsive */
+/* Desktop - Solo imagen de invitación */
+@media (min-width: 769px) {
+    .photo-section-1 {
+        height: 100vh;
+    }
+
+    .photo-section-2 {
+        display: none;
+    }
+
+    .welcome-text {
+        color: #000000;
+        text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* Responsive - Mobile */
 @media (max-width: 768px) {
     .sidebar {
         width: 100%;
@@ -501,6 +562,11 @@ body {
 
     .welcome-title {
         font-size: 3rem;
+    }
+
+    .welcome-text {
+        font-size: 2.5rem;
+        letter-spacing: -2px;
     }
 
     .section-title {
