@@ -276,7 +276,6 @@ body {
     text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
     margin: 0;
     letter-spacing: -3px;
-    animation: slideDown 1s ease;
     text-align: center;
     white-space: nowrap;
 }
