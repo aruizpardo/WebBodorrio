@@ -4,8 +4,7 @@ CREATE TABLE boda.invitados (
     contacto VARCHAR(15) NOT NULL,
     asistencia BOOLEAN DEFAULT FALSE NOT NULL,
     usuario_bus VARCHAR(15) NOT NULL DEFAULT 'no',
-    neno BOOLEAN DEFAULT FALSE NOT NULL,
-    vegano VARCHAR(15) NOT NULL DEFAULT 'no',
+    menu VARCHAR(15) NOT NULL DEFAULT 'no',
     alerxias VARCHAR(100) NULL,
     intolerancias VARCHAR(100) NULL,
     data_rexistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP

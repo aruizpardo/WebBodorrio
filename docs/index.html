@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boda - Menú Principal</title>
+    <title>Boda Raquel y Carlos</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
@@ -79,16 +79,16 @@
                 
                 <p>Habrá un autobús disponible para quienes prefieran olvidarse del volante. Podrás reservar tu plaza con antelación y te dejará directamente en la finca, sin preocupaciones. Cuando sepamos el número de personas que optarán por esta opción os dejaremos toda la información en la pestaña "Transporte". En esta pestaña os dejaremos también el contacto de algunos taxistas por si preferís esta alternativa.</p>
                 
-                <p>Si vienes en coche, en el mapa verás marcadas varias zonas donde se puede aparcar. Eso sí, el espacio es limitado, así que te recomendamos compartir coche con otros invitados siempre que puedas. Así todos llegamos más cómodos y sin vueltas innecesarias.</p>
                 
                 <div class="map-link">
-                    <h4>📌 Chincheta de Google Maps:</h4>
                     <a href="https://maps.app.goo.gl/oSfDxEFVo3iRFinT9" target="_blank" class="map-button">Ver ubicación en Google Maps</a>
                 </div>
                 
                 <h4>🚗 Zona de aparcamiento:</h4>
-                <p><em>(Información próximamente)</em></p>
                 <img src="./static/images/Ubicacion.jpeg" alt="Mapa de aparcamiento" class="parking-map">
+
+                <p>Si vienes en coche, en el mapa verás marcadas varias zonas donde se puede aparcar. Eso sí, el espacio es limitado, así que te recomendamos compartir coche con otros invitados siempre que puedas. Así todos llegamos más cómodos y sin vueltas innecesarias.</p>
+                
             </div>
         </div>
     </div>
@@ -207,19 +207,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="neno">¿Quieres menú infantil? (sólo menores de 12 años)</label>
-                    <select id="neno" name="neno">
-                        <option value="no">No</option>
-                        <option value="si">Sí</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="vegano">¿Eres vegano / vegetariano?</label>
-                    <select id="vegano" name="vegano">
-                        <option value="no">No</option>
-                        <option value="vegetariano">Vegetariano</option>
+                    <label for="menu">¿Que menú quieres?</label>
+                    <select id="menu" name="menu">
+                        <option value="carne">Carne</option>
+                        <option value="pescado">Pescado</option>
                         <option value="vegano">Vegano</option>
+                        <option value="infantil">Infantil (menores de 12 años)</option>
                     </select>
                 </div>
 
