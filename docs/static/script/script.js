@@ -96,3 +96,63 @@ document.getElementById('questionarioForm').addEventListener('submit', async (e)
         }, 3000);
     }
 });
+
+
+document.getElementById('questionarioFormBus').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(e.target);
+    const submitButton = e.target.querySelector('.submit-button');
+    const originalText = submitButton.textContent;
+    
+    // Deshabilitar botón mientras se envía
+    submitButton.disabled = true;
+    submitButton.textContent = 'Enviando...';
+    
+    try {
+        // Send data to API as form-urlencoded
+        const response = await fetch('/bus', {
+            method: 'POST',
+            body: formData
+        });
+        
+        if (response.ok) {
+            // Mostrar éxito (verde)
+            submitButton.classList.add('success');
+            submitButton.textContent = '✓ ¡Confirmación enviada!';
+            
+            // Resetear formulario después de 3 segundos
+            setTimeout(() => {
+                submitButton.classList.remove('success');
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+                e.target.reset();
+            }, 3000);
+        } else {
+            // Mostrar error (vermello)
+            submitButton.classList.add('error');
+            submitButton.textContent = '✗ Error al enviar';
+            
+            // Volver al estado original después de 3 segundos
+            setTimeout(() => {
+                submitButton.classList.remove('error');
+                submitButton.textContent = originalText;
+                submitButton.disabled = false;
+            }, 3000);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        
+        // Mostrar error (vermello)
+        submitButton.classList.add('error');
+        submitButton.textContent = '✗ Error de conexión';
+        
+        // Volver al estado original después de 3 segundos
+        setTimeout(() => {
+            submitButton.classList.remove('error');
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+        }, 3000);
+    }
+});

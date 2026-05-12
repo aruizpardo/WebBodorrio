@@ -9,3 +9,10 @@ CREATE TABLE boda.invitados (
     intolerancias VARCHAR(100) NULL,
     data_rexistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE boda.bus (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    usuario_bus VARCHAR(30) NOT NULL,
+    data_rexistro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

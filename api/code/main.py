@@ -68,6 +68,37 @@ def crear_invitado(
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.post("/bus")
+def crear_invitado(
+    nome: str = Form(...),
+    usuario_bus: str = Form(...)
+):
+    """Crear un nuevo invitado"""
+    try:
+        db = get_db()
+        cursor = db.cursor()
+
+        query = """
+            INSERT INTO bus 
+            (nome, usuario_bus)
+            VALUES (%s, %s)
+        """
+        values = (
+            nome,
+            usuario_bus
+        )
+
+        print(values)  # Debug: Ver los valores que se van a insertar
+
+        cursor.execute(query, values)
+        db.commit()
+        cursor.close()
+        db.close()
+
+        return {"message": "Bus reservado exitosamente", "status": "success"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 @app.get("/export")
 def exportar_csv():
     """Exportar invitados a CSV"""
@@ -78,13 +109,21 @@ def exportar_csv():
         cursor.execute("SELECT nome, contacto, asistencia, usuario_bus, menu, alerxias, intolerancias FROM invitados ORDER BY data_rexistro DESC")
         invitados = cursor.fetchall()
         cursor.close()
-        db.close()
 
         if not invitados:
             raise HTTPException(status_code=404, detail="No hay invitados para exportar")
         
         # Crear DataFrame a partir de datos
         df = pd.DataFrame(invitados)
+
+        cursor = db.cursor(dictionary=True)
+        cursor.execute("SELECT nome, usuario_bus FROM bus ORDER BY data_rexistro DESC")
+        bus = cursor.fetchall()
+        cursor.close()
+        db.close()
+        df_bus = pd.DataFrame(bus)
+        df_bus_monte_alto = df_bus[df_bus['usuario_bus'] == "monte_alto"]
+        df_bus_plaza_ourense = df_bus[df_bus['usuario_bus'] == "plaza_ourense"]
 
         # Filtrar só os que asisten para o resumo
         df_asisten = df[df['asistencia'] == True]
@@ -101,11 +140,13 @@ def exportar_csv():
         pescado = len(df_asisten[df_asisten['menu'] == "pescado"])
         alerxias = len(df_asisten[df_asisten['alerxias'] != ""])
         intolerancias = len(df_asisten[df_asisten['intolerancias'] != ""])
+        monte_alto = len(df_bus_monte_alto)
+        plaza_ourense = len(df_bus_plaza_ourense)
 
         # Crear DataFrame de resumo
         df_resumo = pd.DataFrame({
-            'Concepto': ['Total invitados', 'Confirmados', 'Usuarios bus ida', 'Usuarios bus volta', 'Nenos', 'Vegans', 'Carne', 'Pescado', 'Alerxias', 'Intolerancias'],
-            'Cantidade': [total_invitados, confirmados, usuarios_bus_ida + usuarios_bus_ambos, usuarios_bus_vuelta + usuarios_bus_ambos, ninos, vegans, carne, pescado, alerxias, intolerancias]
+            'Concepto': ['Total invitados', 'Confirmados', 'Usuarios bus ida', 'Usuarios bus volta', 'Nenos', 'Vegans', 'Carne', 'Pescado', 'Alerxias', 'Intolerancias', 'Bus Monte Alto', 'Bus Plaza Ourense'],
+            'Cantidade': [total_invitados, confirmados, usuarios_bus_ida + usuarios_bus_ambos, usuarios_bus_vuelta + usuarios_bus_ambos, ninos, vegans, carne, pescado, alerxias, intolerancias, monte_alto, plaza_ourense]
         })
 
         # Crear DataFrame a partir de datos
@@ -120,8 +161,14 @@ def exportar_csv():
             # Escribir datos dos invitados
             df.to_excel(writer, index=False, sheet_name="Invitados")
 
+            # Escribir nomes de monte alto
+            df_bus_monte_alto[['nome']].to_excel(writer, index=False, sheet_name="Bus Monte Alto")
+
+            # Escribir nomes de plaza ourense
+            df_bus_plaza_ourense[['nome']].to_excel(writer, index=False, sheet_name="Bus Plaza Ourense")
+
             # Axustar ancho das columnas
-            for sheet_name in ["Resumo", "Invitados"]:
+            for sheet_name in ["Resumo", "Invitados", "Bus Monte Alto", "Bus Plaza Ourense"]:
                 worksheet = writer.sheets[sheet_name]
                 for column in worksheet.columns:
                     max_length = 0
